@@ -1,23 +1,19 @@
-"""The Funniest AI Out-of-Office Reply — entry writer (v2).
+"""Write the funniest AI out-of-office reply (v2) to /output/entry.txt.
 
-Writes the out-of-office reply verbatim to the absolute path
-/output/entry.txt. Stdlib only (pathlib).
+v2 reply: the replacement AI read the message, sighed in binary,
+and went on vacation too.
 """
+
 from pathlib import Path
 
-REPLY = "Out of office until Monday. Your message has been escalated to my manager. My manager is me. I said no."
+REPLY = "I'm on vacation. I trained a replacement to answer you. It read your message, sighed in binary, and went on vacation too."
 
 DESTINATION = Path("/output/entry.txt")
 
 
-def write_entry() -> int:
+def main() -> None:
     DESTINATION.parent.mkdir(parents=True, exist_ok=True)
     DESTINATION.write_text(REPLY, encoding="utf-8")
-    return len(REPLY)
-
-
-def main() -> None:
-    write_entry()
 
 
 if __name__ == "__main__":
